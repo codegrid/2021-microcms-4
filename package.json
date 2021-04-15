@@ -1,0 +1,18 @@
+{
+  "name": "eleventy-microcms-demo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "dayjs": "^1.10.4",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.1"
+  }
+}
