@@ -15,13 +15,10 @@ jobs:
         node-version: 12.16.3
     - name: Install NPM packages
       run: npm ci
-    - name: create env file
-      run: |
-        touch .env
-        echo X_API_KEY=${{secrets.X_API_KEY}} >> .env
-        echo ENDPOINT_URL=${{secrets.ENDPOINT_URL}} >> .env
-
     - name: Build website
+      env:
+        X_API_KEY: ${{secrets.X_API_KEY}}
+        ENDPOINT_URL: ${{secrets.ENDPOINT_URL}}
       run: npm run build --if-present
     - name: Deploy website
       uses: peaceiris/actions-gh-pages@v3.6.4
