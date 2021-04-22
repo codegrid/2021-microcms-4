@@ -27,7 +27,7 @@ jobs:
         rm .gitignore
     - name: Push .env to directory
       run: |
-        git config user.email ${{ secrets.EMAIL} }
+        git config user.email ${{ secrets.EMAIL }}
         git config user.name ${{ secrets.USERNAME }}
         git add .
         git commit -m "environment variables"
