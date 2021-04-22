@@ -4,6 +4,9 @@ on:
   push:
     branches: [ master ]
 
+env:
+  X_API_KEY: ${{ secrets.X_API_KEY }} 
+  ENDPOINT_URL: ${{ secrets.ENDPOINT_URL }} 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,11 +18,6 @@ jobs:
         node-version: 12.16.3
     - name: Install NPM packages
       run: npm ci
-    - name: Create .env file
-      run: |
-        touch .env
-        echo X_API_KEY=${{ secrets.X_API_KEY }} >> .env
-        echo ENDPOINT_URL=${{ secrets.ENDPOINT_URL }} >> .env
     - name: Build website
       run: npm run build --if-present
     - name: Deploy website
