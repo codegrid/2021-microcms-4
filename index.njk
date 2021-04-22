@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title>microCMS-お知らせを実装するデモ-</title>
+    <title>microCMS3回目-お知らせを実装するデモ-</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css" />
     <style>
@@ -61,7 +61,7 @@
         <ul class="topPageNews">
       {% for article in news %}
         <li class="topPageNews__item">
-          <img src="{{article.thumbnail.url | optimizeImage}}" alt="{{article.thumbnailAlt}}">
+          <img src="{{article.thumbnail.url | optimizeImage(560)}}" alt="{{article.thumbnailAlt}}">
           <div class="topPageNews__Heading">
             <time class="topPageNews__date">{{article.date | formatDate('YYYY/MM/DD')}}</time>
             <span class="topPageNews__category">{{article.category}}</span>
@@ -71,7 +71,7 @@
           </div>
           <h3>{{article.title}}</h3>
           <p class="topPageNews__paragraph">
-          {{article.paragraph}}
+          {{article.paragraph }}
           </p>
         </li>
       {% endfor %}

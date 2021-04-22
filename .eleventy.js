@@ -4,7 +4,9 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter("formatDate", (date,format) => {
     return dayjs(date).format(format)
   });
-   eleventyConfig.addFilter("optimizeImage", (imageUrl) => {
-     return `${imageUrl}?auto=compress,format`;
+   eleventyConfig.addFilter("optimizeImage", (imageUrl,size) => {
+      return size
+        ? `${imageUrl}?auto=compress&w=${size}`
+        : `${imageUrl}?auto=compress`;
    });
 };
