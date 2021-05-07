@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title>microCMS3回目-お知らせを実装するデモ-</title>
+    <title>microCMS4回目-お知らせを実装するデモ-</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css" />
     <style>
@@ -37,7 +37,6 @@
     }
     .topPageNews__category{
       margin-left:0.5rem;
-      background-color:gray;
       color:white;
       border-radius:5px;
       padding:0.25rem 1rem;
@@ -61,10 +60,10 @@
         <ul class="topPageNews">
       {% for article in news %}
         <li class="topPageNews__item">
-          <img src="{{article.thumbnail.url | optimizeImage(560)}}" alt="{{article.thumbnailAlt}}">
+          <img src="{{article.thumbnail.image.url | optimizeImage(560)}}" alt="{{article.thumbnail.alt}}">
           <div class="topPageNews__Heading">
             <time class="topPageNews__date">{{article.date | formatDate('YYYY/MM/DD')}}</time>
-            <span class="topPageNews__category">{{article.category}}</span>
+            <span class="topPageNews__category" style='background-color:{{article.category.colorCode}}'>{{article.category.label}}</span>
             {% if article.isImportant %}
               <span class="topPageNews__important">重要</span>
             {% endif %}
